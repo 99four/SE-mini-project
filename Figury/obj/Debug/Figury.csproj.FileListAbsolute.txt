@@ -1,0 +1,10 @@
+c:\Temp\Szkielet\Figury\obj\Debug\Figury.csprojResolveAssemblyReference.cache
+c:\Temp\Szkielet\Figury\obj\Debug\Figury.frmGłówny.resources
+c:\Temp\Szkielet\Figury\obj\Debug\Figury.csproj.GenerateResource.Cache
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\obj\Debug\Figury.csprojResolveAssemblyReference.cache
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\obj\Debug\Figury.frmGłówny.resources
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\obj\Debug\Figury.csproj.GenerateResource.Cache
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\bin\Debug\Figury.exe
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\bin\Debug\Figury.pdb
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\obj\Debug\Figury.exe
+C:\Users\student\Downloads\miniProjekt\Szkielet\Figury\obj\Debug\Figury.pdb
