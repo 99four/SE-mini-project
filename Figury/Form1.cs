@@ -269,6 +269,9 @@ namespace Figury
 			}
 			if (rbOkrąg.Checked)
 			{
+                CCircle okrag = new CCircle();
+                okrag.CreateFromPoints(punkt, koncowyPunkt);
+                drawing.AddShape(okrag);
 				//Dodaj nowy okrąg
 			}
 			drawPicture();
