@@ -20,12 +20,23 @@ namespace Figury
         override
         public void Save(XmlNode root)
         {
+            XmlDocument doc = root.OwnerDocument;
+            XmlElement shapeNode = doc.CreateElement("Rectangle");
+            shapeNode.SetAttribute("X", ULCoordinate().X.ToString());
+            shapeNode.SetAttribute("Y", ULCoordinate().Y.ToString());
+            shapeNode.SetAttribute("Width", Width().ToString());
+            shapeNode.SetAttribute("Height", Height().ToString());
 
+            root.AppendChild(shapeNode);
         }
 
         override
         public bool Load(XmlNode root)
         {
+            this.m_Coordinate.X = int.Parse(root.Attributes["X"].Value);
+            this.m_Coordinate.Y = int.Parse(root.Attributes["Y"].Value);
+            this.m_Width = int.Parse(root.Attributes["Width"].Value);
+            this.m_Height = int.Parse(root.Attributes["Height"].Value);
             return true;
         }
 

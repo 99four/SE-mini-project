@@ -19,12 +19,21 @@ namespace Figury
         override
         public void Save(XmlNode root)
         {
+            XmlDocument doc = root.OwnerDocument;
+            XmlElement shapeNode = doc.CreateElement("Circle");
+            shapeNode.SetAttribute("CenterX", Center().X.ToString());
+            shapeNode.SetAttribute("CenterY", Center().Y.ToString());
+            shapeNode.SetAttribute("Radius", Radius().ToString());
 
+            root.AppendChild(shapeNode);
         }
 
         override
         public bool Load(XmlNode root)
         {
+            this.m_Coordinate.X = int.Parse(root.Attributes["CenterX"].Value);
+            this.m_Coordinate.Y = int.Parse(root.Attributes["CenterY"].Value);
+            this.m_Radius = float.Parse(root.Attributes["Radius"].Value);
             return true;
         }
 

@@ -63,6 +63,20 @@ namespace Figury
                     linia.Load(shape);
                     this.m_Shapes.Add(linia);
                 }
+                else if (shape.Name == "Rectangle")
+                {
+                    CRectangle prostokat = new CRectangle();
+                    prostokat.CreateFromPoints(new CCoordinate(), new CCoordinate());
+                    prostokat.Load(shape);
+                    this.m_Shapes.Add(prostokat);
+                }
+                else if (shape.Name == "Circle")
+                {
+                    CCircle okrag = new CCircle();
+                    okrag.CreateFromPoints(new CCoordinate(), new CCoordinate());
+                    okrag.Load(shape);
+                    this.m_Shapes.Add(okrag);
+                }
             }
 
             return true;
