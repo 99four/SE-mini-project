@@ -27,12 +27,23 @@ namespace Figury
         override
         public void Save(XmlNode root)
         {
+            XmlDocument doc = root.OwnerDocument;
+            XmlElement shapeNode = doc.CreateElement("Line");
+            shapeNode.SetAttribute("StartX", Start().X.ToString());
+            shapeNode.SetAttribute("StartY", Start().Y.ToString());
+            shapeNode.SetAttribute("EndX", End().X.ToString());
+            shapeNode.SetAttribute("EndY", End().Y.ToString());
 
+            root.AppendChild(shapeNode);
         }
 
         override
         public bool Load(XmlNode root)
         {
+            this.m_Coordinate.X = int.Parse(root.Attributes["StartX"].Value);
+            this.m_Coordinate.Y = int.Parse(root.Attributes["StartY"].Value);
+            this.m_End.X = int.Parse(root.Attributes["EndX"].Value);
+            this.m_End.Y = int.Parse(root.Attributes["EndY"].Value);
             return true;
         }
 
