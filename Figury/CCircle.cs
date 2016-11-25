@@ -8,13 +8,12 @@ namespace Figury
 {
     class CCircle : CShape
     {
-        protected double m_Radius { get; set; }
-        private CRectangle rectangle;
+        protected float m_Radius;
 
         override
         public void Draw(Graphics g, Pen p)
         {
-            g.DrawEllipse(p, this.rectangle.ULCoordinate().X, this.rectangle.ULCoordinate().Y, this.rectangle.Width(), this.rectangle.Height());
+            g.DrawEllipse(p, this.m_Coordinate.X - this.m_Radius, this.m_Coordinate.Y - this.m_Radius, 2 * this.m_Radius, 2 * this.m_Radius);
         }
 
         override
@@ -32,14 +31,14 @@ namespace Figury
         override
         public void CreateFromPoints(CCoordinate point1, CCoordinate point2)
         {
-            rectangle = new CRectangle();
-            rectangle.CreateFromPoints(point1, point2);
-            this.m_Radius = Math.Sqrt(Math.Pow(point1.Y - point2.Y, 2) + Math.Pow(point2.X - point1.X, 2));
+            this.m_Coordinate = point1;
+            this.m_Radius = (float)Math.Sqrt(Math.Pow(point1.Y - point2.Y, 2) + Math.Pow(point2.X - point1.X, 2));
         }
 
         public CCircle(CCoordinate center, int radius)
         {
-
+            this.m_Coordinate = center;
+            this.m_Radius = radius;
         }
 
         public CCircle()
