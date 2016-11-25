@@ -253,7 +253,7 @@ namespace Figury
 		private void picObrazek_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
             koncowyPunkt = new CCoordinate(e.X, e.Y);
-            //w zale¿noœci od stanu dodaj figurę
+            //w zaleznosci od zaznaczonego radio buttona dodaj figurę
             if (rbLinia.Checked)
 			{
                 CLine linia = new CLine();
@@ -262,7 +262,8 @@ namespace Figury
 			}
 			if (rbProstokąt.Checked)
 			{
-                CRectangle prostokat = new CRectangle(punkt, koncowyPunkt.X - punkt.X, koncowyPunkt.Y - punkt.Y);
+                CRectangle prostokat = new CRectangle();
+                prostokat.CreateFromPoints(punkt, koncowyPunkt);
                 drawing.AddShape(prostokat);
 				//Dodaj nowy prostokąt
 			}

@@ -12,6 +12,12 @@ namespace Figury
 
         public CLine() { }
 
+        public CLine(CCoordinate point1, CCoordinate point2)
+        {
+            this.m_Coordinate = point1;
+            this.m_End = point2;
+        }
+
         override
         public void Draw(Graphics g, Pen p)
         {

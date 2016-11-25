@@ -8,8 +8,8 @@ namespace Figury
 {
     class CRectangle : CShape
     {
-        protected int m_Width { get; set; }
-        protected int m_Height { get; set; }
+        private int m_Width;
+        private int m_Height;
 
         override
         public void Draw(Graphics g, Pen p)
@@ -32,7 +32,28 @@ namespace Figury
         override
         public void CreateFromPoints(CCoordinate point1, CCoordinate point2)
         {
+            this.m_Coordinate = new CCoordinate();
 
+            if (point1.X < point2.X && point1.Y > point2.Y)
+            {
+                this.m_Coordinate.X = point1.X;
+                this.m_Coordinate.Y = point2.Y;
+            }
+            else if (point2.X < point1.X && point1.Y > point2.Y)
+            {
+                this.m_Coordinate = point2;
+            }
+            else if (point2.X < point1.X && point1.Y < point2.Y)
+            {
+                this.m_Coordinate.X = point2.X;
+                this.m_Coordinate.Y = point1.Y;
+            }
+            else
+            {
+                this.m_Coordinate = point1;
+            }
+            this.m_Width = Math.Abs(point2.X - point1.X);
+            this.m_Height = Math.Abs(point2.Y - point1.Y);
         }
 
         public CRectangle(CCoordinate corner, int width, int height)
@@ -42,19 +63,25 @@ namespace Figury
             this.m_Height = height;
         }
 
+        public CRectangle()
+        {
+
+        }
+
+
         public CCoordinate ULCoordinate()
         {
-            return m_Coordinate;
+            return this.m_Coordinate;
         }
 
         public int Width()
         {
-            return 1;
+            return this.m_Width;
         }
 
         public int Height()
         {
-            return 1;
+            return this.m_Height;
         }
     }
 }

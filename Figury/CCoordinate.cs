@@ -15,6 +15,11 @@ namespace Figury
             this.m_Y = y;
         }
 
+        public CCoordinate()
+        {
+
+        }
+
         public int X
         {
             get
